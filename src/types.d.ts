@@ -1,23 +1,20 @@
-export interface IRoomPhoto {
+export interface IPostPhoto {
   pk: string;
   file: string;
   description: string;
 }
 
-export interface IRoomList {
+export interface IPostList {
   pk: number;
   name: string;
-  country: string;
-  city: string;
-  price: number;
-  rating: number;
   is_owner: boolean;
+  p_like: number;
+  p_dislike: number;
   photos: IRoomPhoto[];
   category: string;
 }
 
-export interface IRoomOwner {
-  name: string;
+export interface IPostOwner {
   avatar: string;
   username: string;
 }
@@ -25,30 +22,25 @@ export interface IRoomOwner {
 export interface ICategory {
   pk: number;
   name: string;
-  kind: string;
 }
 
-export interface IRoomDetail extends IRoomList {
+export interface IPostDetail extends IPostList {
   id: number;
   created_at: string;
   updated_at: string;
-  rooms: number;
-  toilets: number;
   description: string;
-  address: string;
-  pet_friendly: true;
-  kind: string;
   is_owner: boolean;
-  is_liked: boolean;
   category: ICategory;
-  owner: IRoomOwner;
-  amenities: IAmenity[];
+  owner: IPostOwner;
+  p_like: number;
+  p_dislike: number;
 }
 
-export interface IReview {
+export interface IComment {
   payload: string;
-  rating: number;
-  user: IRoomOwner;
+  user: IPostOwner;
+  c_like: number;
+  c_dislike: number;
 }
 
 export interface IUser {
@@ -58,8 +50,6 @@ export interface IUser {
   date_joined: string;
   avatar: string;
   name: string;
-  is_host: boolean;
   gender: string;
-  language: string;
-  currency: string;
+  is_owner: boolean;
 }

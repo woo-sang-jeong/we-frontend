@@ -1,14 +1,5 @@
 import { FaComment, FaGithub } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc";
-import {
-  Box,
-  Button,
-  Divider,
-  HStack,
-  Text,
-  VStack,
-  Center,
-} from "@chakra-ui/react";
+import { Box, Button, Divider, HStack, Text, VStack } from "@chakra-ui/react";
 
 export default function SocialLogin() {
   let kakaoParams = {
@@ -30,21 +21,11 @@ export default function SocialLogin() {
     <Box mb={4}>
       <HStack my={8}>
         <Divider />
-        <Text textTransform={"uppercase"} color="gray.500" fontSize="xs" as="b">
-          Or
-        </Text>
         <Divider />
       </HStack>
       <VStack>
-        <Button
-          w={"full"}
-          maxW={"md"}
-          variant={"outline"}
-          leftIcon={<FcGoogle />}
-        >
-          <Center>
-            <Text>Sign in with Google</Text>
-          </Center>
+        <Button as="a" href={githubUrl} w="100%" leftIcon={<FaGithub />}>
+          Continue with Github
         </Button>
         <Button
           as="a"

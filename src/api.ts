@@ -6,23 +6,23 @@ import { formatDate } from "./lib/utils";
 const instance = axios.create({
   baseURL:
     process.env.NODE_ENV === "development"
-      ? "http://127.0.0.1:8000/api/v1/"
-      : "https://weconnect-2mtv.onrender.com/api/v1",
+      ? "http://127.0.0.1:8000/api/"
+      : "https://weconnect-2mtv.onrender.com/api/",
   withCredentials: true,
 });
 
-export const getRooms = () =>
-  instance.get("rooms/").then((response) => response.data);
+export const getPosts = () =>
+  instance.get("posts/").then((response) => response.data);
 
-export const getRoom = ({ queryKey }: QueryFunctionContext) => {
+export const getPost = ({ queryKey }: QueryFunctionContext) => {
   const [_, roomPk] = queryKey;
-  return instance.get(`rooms/${roomPk}`).then((response) => response.data);
+  return instance.get(`posts/${roomPk}`).then((response) => response.data);
 };
 
-export const getRoomReviews = ({ queryKey }: QueryFunctionContext) => {
+export const getPostComment = ({ queryKey }: QueryFunctionContext) => {
   const [_, roomPk] = queryKey;
   return instance
-    .get(`rooms/${roomPk}/reviews`)
+    .get(`posts/${roomPk}/comments`)
     .then((response) => response.data);
 };
 
@@ -89,30 +89,18 @@ export const usernameLogIn = ({
     }
   );
 
-export const getAmenities = () =>
-  instance.get(`rooms/amenities`).then((response) => response.data);
-
 export const getCategories = () =>
   instance.get(`categories`).then((response) => response.data);
 
-export interface IUploadRoomVariables {
+export interface IUploadPostVariables {
   name: string;
-  country: string;
-  city: string;
-  price: number;
-  rooms: number;
-  toilets: number;
   description: string;
-  address: string;
-  pet_friendly: boolean;
-  kind: string;
-  amenities: number[];
   category: number;
 }
 
-export const uploadRoom = (variables: IUploadRoomVariables) =>
+export const uploadRoom = (variables: IUploadPostVariables) =>
   instance
-    .post(`rooms/`, variables, {
+    .post(`posts/`, variables, {
       headers: {
         "X-CSRFToken": Cookie.get("csrftoken") || "",
       },
@@ -148,17 +136,17 @@ export const uploadImage = ({ file, uploadURL }: IUploadImageVarialbes) => {
 export interface ICreatePhotoVariables {
   description: string;
   file: string;
-  roomPk: string;
+  postPk: string;
 }
 
 export const createPhoto = ({
   description,
   file,
-  roomPk,
+  postPk,
 }: ICreatePhotoVariables) =>
   instance
     .post(
-      `rooms/${roomPk}/photos`,
+      `posts/${postPk}/photos`,
       { description, file },
       {
         headers: {
@@ -167,21 +155,3 @@ export const createPhoto = ({
       }
     )
     .then((response) => response.data);
-
-type CheckBookingQueryKey = [string, string?, Date[]?];
-
-export const checkBooking = ({
-  queryKey,
-}: QueryFunctionContext<CheckBookingQueryKey>) => {
-  const [_, roomPk, dates] = queryKey;
-  if (dates) {
-    const [firstDate, secondDate] = dates;
-    const checkIn = formatDate(firstDate);
-    const checkOut = formatDate(secondDate);
-    return instance
-      .get(
-        `rooms/${roomPk}/bookings/check?check_in=${checkIn}&check_out=${checkOut}`
-      )
-      .then((response) => response.data);
-  }
-};
