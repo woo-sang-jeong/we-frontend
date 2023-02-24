@@ -5,6 +5,7 @@ import {
   Grid,
   HStack,
   Image,
+  SimpleGrid,
   Text,
   useColorModeValue,
   VStack,
@@ -12,6 +13,18 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import React from "react";
 
+export default function Post() {
+  return (
+    <SimpleGrid p="10px" columns={2} spacing={10} minChildWidth="250px">
+      <Box bg="white" h="200px" border="1px solid"></Box>
+      <Box bg="white" h="200px" border="1px solid"></Box>
+      <Box bg="white" h="200px" border="1px solid"></Box>
+      <Box bg="white" h="200px" border="1px solid"></Box>
+    </SimpleGrid>
+  );
+}
+
+/*
 interface IPostProps {
   imageUrl: string;
   username: string;
@@ -40,19 +53,9 @@ export default function Post({
       <VStack alignItems={"flex-start"}>
         <Box position="relative" overflow={"hidden"} mb={3} rounded="2xl">
           <Image minH="280" src={imageUrl} />
-          <Button
-            variant={"unstyled"}
-            position="absolute"
-            top={0}
-            right={0}
-            onClick={onCameraClick}
-            color="white"
-          >
-            {isOwner ? <FaCamera size="20px" /> : <FaRegHeart size="20px" />}
-          </Button>
         </Box>
         <Box>
-          <Grid gap={2} templateColumns={"6fr 1fr"}>
+          <Grid gap={2} templateColumns={"2fr 1fr"}>
             <Text display={"block"} as="b" noOfLines={1} fontSize="md">
               {username}
             </Text>
@@ -71,3 +74,4 @@ export default function Post({
     </Link>
   );
 }
+*/

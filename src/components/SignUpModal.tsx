@@ -12,7 +12,6 @@ import {
   ModalOverlay,
   VStack,
 } from "@chakra-ui/react";
-import { FaUserNinja, FaLock, FaEnvelope, FaUserSecret } from "react-icons/fa";
 import SocialLogin from "./SocialLogin";
 
 interface SignUpModalProps {

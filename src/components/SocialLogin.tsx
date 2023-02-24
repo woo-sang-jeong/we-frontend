@@ -1,5 +1,14 @@
-import { FaComment, FaGithub } from "react-icons/fa";
-import { Box, Button, Divider, HStack, Text, VStack } from "@chakra-ui/react";
+import { FaComment, FaFacebook, FaGithub } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
+import {
+  Box,
+  Button,
+  Center,
+  Divider,
+  HStack,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 
 export default function SocialLogin() {
   let kakaoParams = {
@@ -25,7 +34,7 @@ export default function SocialLogin() {
       </HStack>
       <VStack>
         <Button as="a" href={githubUrl} w="100%" leftIcon={<FaGithub />}>
-          Continue with Github
+          <Text m={7}>Continue with Github</Text>
         </Button>
         <Button
           as="a"
@@ -34,7 +43,27 @@ export default function SocialLogin() {
           leftIcon={<FaComment />}
           colorScheme={"yellow"}
         >
-          Continue with Kakao
+          <Text m={8}>Continue with Kakao</Text>
+        </Button>
+        <Button
+          w={"full"}
+          maxW={"md"}
+          colorScheme={"facebook"}
+          leftIcon={<FaFacebook />}
+        >
+          <Center>
+            <Text m={5}>Continue with Facebook</Text>
+          </Center>
+        </Button>
+        <Button
+          w={"full"}
+          maxW={"md"}
+          variant={"outline"}
+          leftIcon={<FcGoogle />}
+        >
+          <Center>
+            <Text m={7}>Continue with Google</Text>
+          </Center>
         </Button>
       </VStack>
     </Box>
