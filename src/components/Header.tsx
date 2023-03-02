@@ -70,7 +70,7 @@ export default function Header() {
     <Stack
       justifyContent={"space-between"}
       alignItems="center"
-      py={5}
+      py={0}
       px={40}
       direction={{
         sm: "column",
@@ -111,8 +111,8 @@ export default function Header() {
               </MenuButton>
               <MenuList>
                 {user?.is_owner ? (
-                  <Link to="/rooms/upload">
-                    <MenuItem>Upload room</MenuItem>
+                  <Link to="/posts/upload">
+                    <MenuItem>Upload Post</MenuItem>
                   </Link>
                 ) : null}
                 <MenuItem onClick={onLogOut}>Log out</MenuItem>

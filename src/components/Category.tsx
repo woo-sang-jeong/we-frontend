@@ -7,7 +7,7 @@ export default function Category() {
   return (
     <>
       <List color="white" fontSize="1.2em" spacing={4}>
-        <ListItem>
+        <ListItem fontFamily="Inter">
           <NavLink to="/">
             <ListIcon as={CalendarIcon} color="white" />
             Freeboard
@@ -15,7 +15,7 @@ export default function Category() {
         </ListItem>
       </List>
       <List color="white" fontSize="1.2em">
-        <ListItem>
+        <ListItem fontFamily="Inter">
           <NavLink to="Living in Korea">
             <ListIcon as={FaStarOfLife} color="white" />
             Living in Korea
@@ -23,7 +23,7 @@ export default function Category() {
         </ListItem>
       </List>
       <List color="white" fontSize="1.2em">
-        <ListItem>
+        <ListItem fontFamily="Inter">
           <NavLink to="Sell & Buy">
             <ListIcon as={FaMapMarkedAlt} color="white" />
             Sell & Buy

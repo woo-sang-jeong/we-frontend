@@ -1,11 +1,9 @@
 import { FaCamera, FaRegHeart, FaStar } from "react-icons/fa";
 import {
   Box,
-  Button,
   Grid,
   HStack,
   Image,
-  SimpleGrid,
   Text,
   useColorModeValue,
   VStack,
@@ -13,18 +11,6 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import React from "react";
 
-export default function Post() {
-  return (
-    <SimpleGrid p="10px" columns={2} spacing={10} minChildWidth="250px">
-      <Box bg="white" h="200px" border="1px solid"></Box>
-      <Box bg="white" h="200px" border="1px solid"></Box>
-      <Box bg="white" h="200px" border="1px solid"></Box>
-      <Box bg="white" h="200px" border="1px solid"></Box>
-    </SimpleGrid>
-  );
-}
-
-/*
 interface IPostProps {
   imageUrl: string;
   username: string;
@@ -46,10 +32,14 @@ export default function Post({
   const navigate = useNavigate();
   const onCameraClick = (event: React.SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    navigate(`/rooms/${pk}/photos`);
+    navigate(`/posts/${pk}/photos`);
   };
+  return <Box></Box>;
+}
+
+/*
   return (
-    <Link to={`/rooms/${pk}`}>
+    <Link to={`/posts/${pk}`}>
       <VStack alignItems={"flex-start"}>
         <Box position="relative" overflow={"hidden"} mb={3} rounded="2xl">
           <Image minH="280" src={imageUrl} />
