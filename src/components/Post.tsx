@@ -30,11 +30,9 @@ export default function Post({
 }: IPostProps) {
   const gray = useColorModeValue("gray.600", "gray.300");
   const navigate = useNavigate();
-  const onCameraClick = (event: React.SyntheticEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    navigate(`/posts/${pk}/photos`);
-  };
-  return <Box></Box>;
+  return <Box>
+    
+  </Box>;
 }
 
 /*
