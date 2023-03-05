@@ -27,23 +27,20 @@ import {
   useToast,
   Input,
   useMediaQuery,
+  VStack,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import LoginModal from "./LoginModal";
 import SignUpModal from "./SignUpModal";
 import useUser from "../lib/useUser";
 import { logOut } from "../api";
-import {
-  defaultShouldDehydrateMutation,
-  useMutation,
-  useQueryClient,
-} from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRef } from "react";
 
 export default function Header() {
-  const [Desktop] = useMediaQuery("(min-width: 610px)");
+  const [Desktop] = useMediaQuery("(min-width: 1110px)");
   const [Tablet] = useMediaQuery("(min-width: 600px and max-width: 1100px)");
-  const [Mobile] = useMediaQuery("(max-width: 600px)");
+  const [Mobile] = useMediaQuery("(max-width: 1100px)");
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
@@ -107,14 +104,41 @@ export default function Header() {
           <Link to={"/"}>
             <MdConnectWithoutContact size={"35"} />
           </Link>
-          <Text fontSize={30}>We connect</Text>
+          <Text fontSize={[20, 20, 30, 30]}>We connect</Text>
         </HStack>
       </Box>
       {Desktop ? (
         <>
-          <HStack spacing={30}>
+          <HStack spacing={35}>
             <Box>
-              <Input placeholder="Search..." />
+              <Link to={"/"}>
+                <Text as="abbr" fontSize={[5, 10, 17]} p={"25px"}>
+                  Freeboard
+                </Text>
+              </Link>
+              <Link to={"/"}>
+                <Text as="abbr" fontSize={[5, 10, 17]} p={"25px"}>
+                  Living in Korea tips
+                </Text>
+              </Link>
+              <Link to={"/"}>
+                <Text as="abbr" fontSize={[5, 10, 17]} p={"25px"}>
+                  Food gallery
+                </Text>
+              </Link>
+              <Link to={"/"}>
+                <Text as="abbr" fontSize={[5, 10, 17]} p={"25px"}>
+                  Jobs
+                </Text>
+              </Link>
+              <Link to={"/"}>
+                <Text as="abbr" fontSize={[5, 10, 17]} p={"25px"}>
+                  Announcement
+                </Text>
+              </Link>
+            </Box>
+            <Box>
+              <Input size={"lg"} placeholder="Search..." />
             </Box>
 
             <IconButton
@@ -151,7 +175,12 @@ export default function Header() {
                   <MenuList>
                     {user?.is_owner ? (
                       <Link to="/posts/upload">
-                        <MenuItem>Upload Post</MenuItem>
+                        <MenuItem>Profile</MenuItem>
+                      </Link>
+                    ) : null}
+                    {user?.is_owner ? (
+                      <Link to="/posts/upload">
+                        <MenuItem>Account</MenuItem>
                       </Link>
                     ) : null}
                     <MenuItem onClick={onLogOut}>Log out</MenuItem>
@@ -201,7 +230,43 @@ export default function Header() {
                     />
                   </HStack>
                 </Box>
-                <Box></Box>
+                <VStack spacing={6} pt={10}>
+                  <Box>
+                    <Link to={"/"}>
+                      <Text as="abbr" fontSize={20}>
+                        Freeboard
+                      </Text>
+                    </Link>
+                  </Box>
+                  <Box>
+                    <Link to={"/"}>
+                      <Text as="abbr" fontSize={20}>
+                        Living in Korea tips
+                      </Text>
+                    </Link>
+                  </Box>
+                  <Box>
+                    <Link to={"/"}>
+                      <Text as="abbr" fontSize={20}>
+                        Food gallery
+                      </Text>
+                    </Link>
+                  </Box>
+                  <Box>
+                    <Link to={"/"}>
+                      <Text as="abbr" fontSize={20}>
+                        Jobs
+                      </Text>
+                    </Link>
+                  </Box>
+                  <Box>
+                    <Link to={"/"}>
+                      <Text as="abbr" fontSize={20}>
+                        Announcement
+                      </Text>
+                    </Link>
+                  </Box>
+                </VStack>
               </DrawerBody>
 
               <DrawerFooter>
@@ -210,7 +275,7 @@ export default function Header() {
                 </Button>
               </DrawerFooter>
             </DrawerContent>
-          </Drawer>{" "}
+          </Drawer>
         </>
       ) : null}
     </Stack>
