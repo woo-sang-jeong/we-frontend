@@ -5,6 +5,7 @@ export interface IPostPhoto {
 }
 
 export interface IPostList {
+  title: string;
   pk: number;
   title: string;
   name: string;

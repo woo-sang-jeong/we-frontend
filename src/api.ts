@@ -15,14 +15,14 @@ export const getPosts = () =>
   instance.get("posts/").then((response) => response.data);
 
 export const getPost = ({ queryKey }: QueryFunctionContext) => {
-  const [_, roomPk] = queryKey;
-  return instance.get(`posts/${roomPk}`).then((response) => response.data);
+  const [_, postPk] = queryKey;
+  return instance.get(`posts/${postPk}`).then((response) => response.data);
 };
 
 export const getPostComment = ({ queryKey }: QueryFunctionContext) => {
-  const [_, roomPk] = queryKey;
+  const [_, postPk] = queryKey;
   return instance
-    .get(`posts/${roomPk}/comments`)
+    .get(`posts/${postPk}/comments`)
     .then((response) => response.data);
 };
 

@@ -166,11 +166,7 @@ export default function Header() {
               ) : (
                 <Menu>
                   <MenuButton>
-                    <Avatar
-                      name={user?.name}
-                      src={user?.avatar}
-                      size={["sm", "md", "lg"]}
-                    />
+                    <Avatar name={user?.name} src={user?.avatar} size={"sm"} />
                   </MenuButton>
                   <MenuList>
                     {user?.is_owner ? (
