@@ -224,6 +224,7 @@ export default function Header() {
                     >
                       Sign up
                     </Button>
+                    <LoginModal isOpen={isLoginOpen} onClose={onLoginClose} />
                     <SignUpModal
                       isOpen={isSignUpOpen}
                       onClose={onSignUpClose}

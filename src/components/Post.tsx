@@ -30,9 +30,7 @@ export default function Post({
 }: IPostProps) {
   const gray = useColorModeValue("gray.600", "gray.300");
   const navigate = useNavigate();
-  return <Box>
-    
-  </Box>;
+  return <Box></Box>;
 }
 
 /*

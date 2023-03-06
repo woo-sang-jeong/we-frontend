@@ -11,12 +11,15 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Category from "./Category";
 import Advertise from "./Advertise";
+import Post from "./Post";
 
 export default function Root() {
   return (
     <ChakraProvider>
-      <Grid mx={"auto"}>
+      <Grid>
         <Header />
+        <Outlet />
+        <Footer />
       </Grid>
     </ChakraProvider>
   );

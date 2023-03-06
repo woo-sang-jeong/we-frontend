@@ -1,4 +1,4 @@
-import { Grid } from "@chakra-ui/react";
+import { Box, Grid } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import { getPosts } from "../api";
 import Post from "../components/Post";
@@ -15,17 +15,24 @@ export default function Home() {
       templateColumns={{
         sm: "1fr",
         md: "1fr 1fr",
-        ///lg: "repeat(3, 1fr)",
-        //xl: "repeat(4, 1fr)",
-        //"2xl": "repeat(5, 1fr)",
       }}
+      //justifyContent={"space-between"}
+      textAlign={"center"}
     >
       {isLoading ? (
         <>
-          <PostSkeleton />
-          <PostSkeleton />
-          <PostSkeleton />
-          <PostSkeleton />
+          <Box w={500} h={500}>
+            <PostSkeleton />
+          </Box>
+          <Box w={500} h={500}>
+            <PostSkeleton />
+          </Box>
+          <Box w={500} h={500}>
+            <PostSkeleton />
+          </Box>
+          <Box w={500} h={500}>
+            <PostSkeleton />
+          </Box>
         </>
       ) : null}
       {data?.map((post) => (
