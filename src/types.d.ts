@@ -5,6 +5,7 @@ export interface IPostPhoto {
 }
 
 export interface IPostList {
+  title: string;
   pk: number;
   name: string;
   is_owner: boolean;

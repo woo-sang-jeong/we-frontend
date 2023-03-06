@@ -12,6 +12,7 @@ import { Link, useNavigate } from "react-router-dom";
 import React from "react";
 
 interface IPostProps {
+  title: string;
   imageUrl: string;
   username: string;
   p_like: number;
