@@ -6,6 +6,7 @@ export interface IPostPhoto {
 
 export interface IPostList {
   pk: number;
+  title: string;
   name: string;
   is_owner: boolean;
   p_like: number;

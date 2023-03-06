@@ -2,7 +2,6 @@ import { Box, Grid } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import { getPosts } from "../api";
 import Post from "../components/Post";
-import PostSkeleton from "../components/PostSkeleton";
 import { IPostList } from "../types";
 
 export default function Home() {
@@ -19,25 +18,10 @@ export default function Home() {
       //justifyContent={"space-between"}
       textAlign={"center"}
     >
-      {isLoading ? (
-        <>
-          <Box w={500} h={500}>
-            <PostSkeleton />
-          </Box>
-          <Box w={500} h={500}>
-            <PostSkeleton />
-          </Box>
-          <Box w={500} h={500}>
-            <PostSkeleton />
-          </Box>
-          <Box w={500} h={500}>
-            <PostSkeleton />
-          </Box>
-        </>
-      ) : null}
       {data?.map((post) => (
         <Post
           key={post.pk}
+          title={post.title}
           pk={post.pk}
           isOwner={post.is_owner}
           imageUrl={post.photos[0]?.file}

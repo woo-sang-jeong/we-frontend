@@ -12,6 +12,7 @@ import { Link, useNavigate } from "react-router-dom";
 import React from "react";
 
 interface IPostProps {
+  title: string;
   imageUrl: string;
   username: string;
   p_like: number;
@@ -30,7 +31,19 @@ export default function Post({
 }: IPostProps) {
   const gray = useColorModeValue("gray.600", "gray.300");
   const navigate = useNavigate();
-  return <Box></Box>;
+  return (
+    <Box
+      maxW={"lg"}
+      borderWidth={2}
+      mt={1}
+      fontWeight={"semibold"}
+      as="h4"
+      lineHeight="tight"
+      noOfLines={1}
+    >
+      <Box></Box>
+    </Box>
+  );
 }
 
 /*
