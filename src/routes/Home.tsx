@@ -13,15 +13,14 @@ export default function Home() {
       rowGap={8}
       templateColumns={{
         sm: "1fr",
-        md: "1fr 1fr",
+        //md: "1fr 1fr",
       }}
-      //justifyContent={"space-between"}
-      textAlign={"center"}
     >
       {data?.map((post) => (
         <Post
           key={post.pk}
           title={post.title}
+          name={post.name}
           pk={post.pk}
           isOwner={post.is_owner}
           imageUrl={post.photos[0]?.file}

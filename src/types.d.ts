@@ -7,13 +7,12 @@ export interface IPostPhoto {
 export interface IPostList {
   title: string;
   pk: number;
-  title: string;
   name: string;
+  category: number;
   is_owner: boolean;
   p_like: number;
   p_dislike: number;
   photos: IRoomPhoto[];
-  category: string;
 }
 
 export interface IPostOwner {

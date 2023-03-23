@@ -104,13 +104,20 @@ export default function Header() {
           <Link to={"/"}>
             <MdConnectWithoutContact size={"35"} />
           </Link>
-          <Text fontSize={[20, 20, 30, 30]}>We connect</Text>
+          <Link to={"/"}>
+            <Text fontSize={[20, 20, 30, 30]}>We connect</Text>
+          </Link>
         </HStack>
       </Box>
       {Desktop ? (
         <>
           <HStack spacing={35}>
             <Box>
+              <Link to={"/"}>
+                <Text as="abbr" fontSize={[5, 10, 17]} p={"25px"}>
+                  Announcement
+                </Text>
+              </Link>
               <Link to={"/"}>
                 <Text as="abbr" fontSize={[5, 10, 17]} p={"25px"}>
                   Freeboard
@@ -123,17 +130,12 @@ export default function Header() {
               </Link>
               <Link to={"/"}>
                 <Text as="abbr" fontSize={[5, 10, 17]} p={"25px"}>
-                  Food gallery
-                </Text>
-              </Link>
-              <Link to={"/"}>
-                <Text as="abbr" fontSize={[5, 10, 17]} p={"25px"}>
                   Jobs
                 </Text>
               </Link>
               <Link to={"/"}>
                 <Text as="abbr" fontSize={[5, 10, 17]} p={"25px"}>
-                  Announcement
+                  Food gallery
                 </Text>
               </Link>
             </Box>

@@ -9,8 +9,6 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
-import Category from "./Category";
-import Advertise from "./Advertise";
 import Post from "./Post";
 
 export default function Root() {
