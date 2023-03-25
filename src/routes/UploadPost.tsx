@@ -86,8 +86,8 @@ export default function UploadRoom() {
                   placeholder="Choose a category"
                 >
                   {categories?.map((category) => (
-                    <option key={category.pk} value={category.pk}>
-                      {category.name}
+                    <option key={category.cpk} value={category.cpk}>
+                      {category.cname}
                     </option>
                   ))}
                 </Select>

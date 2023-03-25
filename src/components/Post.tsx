@@ -7,6 +7,12 @@ import {
   Text,
   useColorModeValue,
   VStack,
+  Table,
+  Tbody,
+  Td,
+  Th,
+  Thead,
+  Tr,
 } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
 import React from "react";
@@ -23,8 +29,8 @@ interface IPostProps extends ICategoryProps {
 }
 
 interface ICategoryProps {
-  pk: number;
-  name: string;
+  categorypk: number;
+  categoryname: string;
 }
 
 export default function Post({
@@ -36,29 +42,53 @@ export default function Post({
   isOwner,
   p_like,
   p_dislike,
+  categorypk: number,
+  categoryname: string,
 }: IPostProps) {
   const gray = useColorModeValue("gray.600", "gray.300");
   const navigate = useNavigate();
   return (
-    <Box>
-      <Box>
-        <Text fontSize={30}>{name}</Text>
-      </Box>
-      <Box
-        maxW={"lg"}
-        borderBottomWidth={4}
-        mt={1}
-        fontWeight={"semibold"}
-        as="h1"
-        lineHeight="tight"
-        noOfLines={1}
-      >
-        <Text>{title}</Text>
-      </Box>
-    </Box>
+    <Table variant="simple" mt="10" w={"500px"} h={"500px"}>
+      <Thead>
+        <Tr>
+          <Th>{name}</Th>
+          <Th>{p_like}</Th>
+          <Th>Username</Th>
+          <Th>Content</Th>
+          <Th>Created At</Th>
+        </Tr>
+      </Thead>
+      <Tbody>
+        <Tr>
+          <Td>{}</Td>
+          <Td>{title}</Td>
+          <Td>{username}</Td>
+          <Td>{}</Td>
+          <Td>{}</Td>
+        </Tr>
+      </Tbody>
+    </Table>
   );
 }
 
+/*
+<Box>
+<Box>
+  <Text fontSize={30}>{title}</Text>
+</Box>
+<Box
+  maxW={"lg"}
+  borderBottomWidth={4}
+  mt={1}
+  fontWeight={"semibold"}
+  as="h1"
+  lineHeight="tight"
+  noOfLines={1}
+>
+  <Text>{title}</Text>
+</Box>
+</Box>
+*/
 /*
   return (
     <Link to={`/posts/${pk}`}>

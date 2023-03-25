@@ -10,12 +10,14 @@ import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import Post from "./Post";
+import Home from "../routes/Home";
 
 export default function Root() {
   return (
     <ChakraProvider>
       <Grid>
         <Header />
+        <Home />
         <Outlet />
         <Footer />
       </Grid>
