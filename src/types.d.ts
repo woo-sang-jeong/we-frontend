@@ -5,14 +5,14 @@ export interface IPostPhoto {
 }
 
 export interface IPostList extends ICategory, IPostDetail {
-  title: string;
-  pk: number;
-  name: string;
-  category: number;
-  is_owner: boolean;
-  p_like: number;
-  p_dislike: number;
-  photos: IPostPhoto[];
+  title?: string;
+  pk?: number;
+  name?: string;
+  category?: number;
+  is_owner?: boolean;
+  p_like?: number;
+  p_dislike?: number;
+  photos?: IPostPhoto[];
 }
 
 export interface IPostOwner {
@@ -21,8 +21,8 @@ export interface IPostOwner {
 }
 
 export interface ICategory {
-  cpk: number;
-  cname: string;
+  cpk?: number;
+  cname?: string;
 }
 
 export interface IPostDetail extends IPostList {

@@ -4,50 +4,14 @@ import Post from "../components/Post";
 import { IPostList } from "../types";
 import { ICategory } from "../types";
 import { IPostDetail } from "../types";
-import {
-  Box,
-  Grid,
-  HStack,
-  Image,
-  Text,
-  useColorModeValue,
-  VStack,
-  Table,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Tr,
-  Stack,
-} from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 
-export default function Home() {
+export default function Home({ title, pk, name, category }: IPostList) {
   const { isLoading, data } = useQuery<IPostList[]>(["Posts"], getPosts);
   return (
-    <Stack>
-      <Box>Category name</Box>
-      <Table>
-        <Thead>
-          <Tr>
-            <Th>Title</Th>
-            <Th>Author</Th>
-            <Th>Content</Th>
-            <Th>Date</Th>
-          </Tr>
-          q
-        </Thead>
-        <Tbody>
-          {data?.map((post) => (
-            <Tr key={1}>
-              <Td>4</Td>
-              <Td>3</Td>
-              <Td>2</Td>
-              <Td>1</Td>
-            </Tr>
-          ))}
-        </Tbody>
-      </Table>
-    </Stack>
+    <Box>
+      <p>{}</p>
+    </Box>
   );
 }
 
