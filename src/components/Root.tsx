@@ -17,7 +17,6 @@ export default function Root() {
     <ChakraProvider>
       <Grid>
         <Header />
-        <Home />
         <Outlet />
         <Footer />
       </Grid>
