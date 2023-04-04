@@ -25,6 +25,14 @@ export interface ICategory {
   cname?: string;
 }
 
+export interface ICategoryPost {
+  name: string;
+  title: string;
+  p_like: number;
+  p_dislike: number;
+  created_at: string;
+}
+
 export interface IPostDetail extends IPostList {
   id: number;
   created_at: string;
