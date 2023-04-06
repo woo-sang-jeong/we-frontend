@@ -1,16 +1,8 @@
-import {
-  Box,
-  ChakraProvider,
-  Grid,
-  GridItem,
-  useMediaQuery,
-} from "@chakra-ui/react";
+import { ChakraProvider, Grid } from "@chakra-ui/react";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
-import Post from "./Post";
-import Home from "../routes/Home";
 
 export default function Root() {
   return (

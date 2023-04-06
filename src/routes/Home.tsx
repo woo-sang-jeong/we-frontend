@@ -1,26 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import { getPosts } from "../api";
-import Post from "../components/Post";
 import { IPostList } from "../types";
-import { ICategory } from "../types";
-import { IPostDetail } from "../types";
 import { getcategorypost } from "../api";
-import {
-  Box,
-  Grid,
-  Heading,
-  HStack,
-  Icon,
-  Stack,
-  chakra,
-  Image,
-} from "@chakra-ui/react";
+import { Box, Grid, Heading } from "@chakra-ui/react";
 import { FaThumbsUp } from "react-icons/fa";
 import { Key } from "react";
 
-interface IPostProps {
-  
-}
+interface IPostProps {}
 
 export default function Home({}: IPostList) {
   const { data } = useQuery(["category", 1], getcategorypost);
@@ -40,38 +25,8 @@ export default function Home({}: IPostList) {
         <Grid
           templateColumns={{ base: "1fr", md: "repeat(6, 1fr)" }}
           gap={{ base: "4", md: "8" }}
-        >
-          {data?.posts.slice(0, 6).map((post) => (
-            <HStack
-              key={post.id}
-              p={{ base: "4", md: "8" }}
-              bg="white"
-              borderRadius="md"
-              alignItems="center"
-            >
-              <Box flex={1}>
-                <chakra.text
-                  fontSize={{ base: "xl", md: "2xl" }}
-                  fontWeight="bold"
-                  isTruncated
-                >
-                  {post.title}
-                </chakra.text>
-                <chakra.text>{post.owner.username}</chakra.text>
-                <chakra.text>
-                  {new Date(post.created_at).toLocaleDateString()}{" "}
-                  {new Date(post.created_at).toLocaleTimeString()}
-                </chakra.text>
-              </Box>
-              <HStack>
-                <Icon as={FaThumbsUp} color="green.500" />
-                <chakra.text>{post.p_like}</chakra.text>
-              </HStack>
-            </HStack>
-          ))}
-        </Grid>
+        ></Grid>
       </Box>
-      <Image src="https://picsum.photos/1000/300" alt="category" w="full" />
     </Box>
   );
 }
